@@ -46,38 +46,8 @@ if (title) {
         }
     );
 }
-import Swiper from "swiper";
-import { Autoplay } from "swiper/modules";
 
-const featuredSwiper = new Swiper(".featuredSwiper", {
-  modules: [Autoplay],
-  slidesPerView: 1,
-  slidesPerGroup: 1,
 
-  // Infinite
-  loop: true,
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false,
-  },
-  speed: 800,
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-    },
-
-    640: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-    },
-
-    1024: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-    },
-  },
-});
 
 const adminLoginBtn =
     document.getElementById("adminLoginBtn") as HTMLButtonElement;

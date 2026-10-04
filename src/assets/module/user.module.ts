@@ -311,8 +311,8 @@ pending_submission_list?.addEventListener("click", async (e: any) => {
         tags: data.contenttags,
         publishDate: new Date().toISOString()
     }
-    let response = await api.post('/adminBlog', publish)
-    let afterApprove = await api.delete(`/pendingSubmissions/${findId}`)
+    await api.post('/adminBlog', publish)
+    await api.delete(`/pendingSubmissions/${findId}`)
     submissionRander()
     randerHtml()
 })
@@ -350,6 +350,6 @@ swalWithBootstrapButtons.fire({
     icon: "error"
   });
 });
-    let res = await api.delete(`/pendingSubmissions/${findId}`)
+    await api.delete(`/pendingSubmissions/${findId}`)
     submissionRander()
 })
