@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://vabnapotro-api.onrender.com",
   timeout: 5000,
   headers: { "content-type": "application/json" },
 });
