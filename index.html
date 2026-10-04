@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ভাবনাপত্র — সাহিত্য ও সংস্কৃতির সাময়িকী</title>
+  <link rel="stylesheet" href="./src/assets/css/all.min.css">
+  <link rel="stylesheet" href="./src/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Noto Serif Bengali", serif;
+    }
+  </style>
+  <title>vabnapotro</title>
+
+
+</head>
+
+
+<body class="bg-[#f7f8f6] text-[#172120]">
+
+  <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+  <div class=" bg-[#fbfaf6]">
+
+    <div
+      class="mx-auto flex max-w-6xl md:items-center md:justify-between px-4 py-2 text-[20px] text-gray-800 font-semibold">
+
+      <p>
+        সাহিত্য • সংস্কৃতি • চিন্তা • সৃজনশীলতা
+      </p>
+
+      <div class="hidden items-center gap-5 sm:flex">
+
+        <a href="#" class="transition hover:text-[#02a39b]">
+          আমাদের সম্পর্কে
+        </a>
+
+        <a href="#footer" class="transition hover:text-[#02a39b]">
+          যোগাযোগ
+        </a>
+
+        <span class="date">
+          ০১ অক্টোবর ২০২৬
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+  <header class="bg-white">
+
+    <div class="mx-auto max-w-6xl px-4 py-5.5">
+
+      <div class="relative flex min-h-[125px] items-center justify-center">
+
+        <!-- Left Social -->
+        <div class="absolute left-0 hidden items-center gap-2 md:flex">
+
+          <a href="#"
+            class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-sm text-gray-500 transition hover:border-[#02a39b] hover:bg-[#02a39b] hover:text-white">
+            f
+          </a>
+
+          <a href="#"
+            class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-sm text-gray-500 transition hover:border-[#02a39b] hover:bg-[#02a39b] hover:text-white">
+            𝕏
+          </a>
+
+          <a href="#"
+            class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-sm text-gray-500 transition hover:border-[#02a39b] hover:bg-[#02a39b] hover:text-white">
+            ◎
+          </a>
+
+        </div>
+
+
+        <!-- Premium Logo -->
+        <a href="#" class="group text-center">
+
+          <h1 id="logo"
+            class="font-serifBangla text-5xl font-extrabold leading-none tracking-[-4px] text-[#073c39] transition group-hover:text-[#02a39b] sm:text-6xl">
+            ভাবনাপত্র
+          </h1>
+
+          <div class="mt-3 flex items-center justify-center gap-2 text-[18px] text-[#073c39] tracking-[3px]">
+
+            <span class="h-0.5  w-10 bg-[#02a39b]"></span>
+
+            চিন্তার স্বাধীন পাঠ
+
+            <span class="h-0.5 rounded-2xl w-10 bg-[#02a39b]"></span>
+
+          </div>
+
+        </a>
+
+
+        <!-- Search + Admin Dashboard -->
+        <div class="absolute right-0 flex items-center gap-2">
+
+          <!-- Search -->
+          <button
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-xl text-gray-500 transition hover:border-[#02a39b] hover:bg-[#02a39b] hover:text-white"
+            aria-label="Search">
+            ⌕
+          </button>
+
+          <!-- Admin Dashboard -->
+          <button id="adminLoginBtn"
+            class="flex h-9 items-center gap-2 rounded-full border border-gray-200 px-4 text-[15px] font-semibold text-gray-500 transition hover:border-[#02a39b] hover:bg-[#02a39b] hover:text-white">
+
+            <i class="fa-solid fa-user-shield text-[14px]"></i>
+
+            <span class="hidden lg:inline">Admin</span>
+
+          </button>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+             NAVBAR
+        ================================================== -->
+
+    <nav class="border-y border-gray-200 bg-[#073c39] text-white">
+
+      <div class="mx-auto max-w-6xl overflow-x-auto md:overflow-x-hidden px-2">
+
+        <div class="flex min-w-6xl items-center justify-around ">
+
+          <a href="#welcome"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            স্বাগত কলাম
+          </a>
+
+          <a href="#article"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            প্রবন্ধ
+          </a>
+
+          <a href="#interview"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            সাক্ষাৎকার
+          </a>
+
+          <a href="#story"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            গল্প
+          </a>
+
+          <a href="#novel"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            উপন্যাস
+          </a>
+
+          <a href="#poetry"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            কবিতা
+          </a>
+
+          <a href="#prose"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            গদ্য
+          </a>
+
+          <a href="#review"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            সমালোচনা
+          </a>
+
+          <a href="#art"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            শিল্পকলা
+          </a>
+
+          <a href="#feature"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            ফিচার
+          </a>
+
+          <a href="#issues"
+            class="border-b-3 border-transparent px-3 py-4 text-xs font-semibold transition hover:border-[#02a39b] hover:text-[#02a39b]">
+            সবগুলো সংখ্যা
+          </a>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+  <main>
+
+
+    <!-- =================================================
+             WELCOME / HERO
+        ================================================== -->
+    <section class="py-7 sm:py-10">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-5 flex items-center gap-3">
+
+          <span class="h-0.5 flex-1 bg-[#02a39b]"></span>
+
+          <h2 class="font-serifBangla text-sm font-bold text-[#073c39]">
+            স্বাগত কলাম
+          </h2>
+
+          <span class="h-0.5 flex-1 bg-[#02a39b]"></span>
+
+        </div>
+
+
+        <!-- Featured -->
+
+        <!-- Slider Container -->
+
+
+
+        <!-- Full Width Slider -->
+
+        <div class="swiper featuredSwiper w-full overflow-hidden">
+
+
+          <div class="swiper-wrapper">
+
+            <!-- ================= Slide 01 ================= -->
+            <div class="swiper-slide">
+
+              <article class="group relative h-[430px] w-full overflow-hidden">
+
+                <!-- Book Image -->
+                <img src="/public/slider-image/slider-1.jpg" alt="বই ও সাহিত্য"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+
+                <!-- Dark Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 flex h-full items-center">
+                  <div class="w-full px-6 sm:px-10 lg:px-16">
+
+                    <div class="max-w-3xl">
+
+                      <!-- Category -->
+                      <span class="mb-3 block font-bangla text-sm font-semibold text-[#02a39b]">
+                        প্রকৃতি ও জীবন
+                      </span>
+
+                      <!-- Title -->
+                      <h2 class="font-serifBangla text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                        পাহাড়ের কোলে লুকিয়ে থাকা
+                        এক অন্য পৃথিবীর গল্প
+                      </h2>
+
+                      <!-- Description -->
+                      <p class="mt-4 max-w-2xl font-bangla text-sm leading-7 text-white/80 sm:text-base">
+                        যান্ত্রিক শহরের ভিড় ছেড়ে প্রকৃতির সান্নিধ্যে কাটানো
+                        কিছু মুহূর্তের গল্প।
+                      </p>
+
+                      <!-- Author -->
+                      <p class="mt-5 font-bangla text-sm text-white/70">
+                        রাকিব হাসান · ৮ মিনিট পাঠ
+                      </p>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </article>
+
+            </div>
+
+
+            <!-- ================= Slide 02 ================= -->
+            <div class="swiper-slide">
+
+              <article class="group relative h-[430px] w-full overflow-hidden">
+
+                <!-- Book Image -->
+                <img src="/public/slider-image/slider-2.jpg" alt="সাহিত্য ও বই"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+
+                <!-- Dark Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 flex h-full items-center">
+                  <div class="w-full px-6 sm:px-10 lg:px-16">
+
+                    <div class="max-w-3xl">
+
+                      <!-- Category -->
+                      <span class="mb-3 block font-bangla text-sm font-semibold text-[#02a39b]">
+                        সাহিত্য
+                      </span>
+
+                      <!-- Title -->
+                      <h2 class="font-serifBangla text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                        বইয়ের পাতায় হারিয়ে যাওয়া
+                        কিছু অচেনা গল্প
+                      </h2>
+
+                      <!-- Description -->
+                      <p class="mt-4 max-w-2xl font-bangla text-sm leading-7 text-white/80 sm:text-base">
+                        শব্দের ভেতর দিয়ে তৈরি হওয়া এক অন্য জগতের
+                        গল্প ও অনুভূতি।
+                      </p>
+
+                      <!-- Author -->
+                      <p class="mt-5 font-bangla text-sm text-white/70">
+                        মুহাম্মদ আব্দুল্লাহ · ৬ মিনিট পাঠ
+                      </p>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </article>
+
+            </div>
+
+
+            <!-- ================= Slide 03 ================= -->
+            <div class="swiper-slide">
+
+              <article class="group relative h-[430px] w-full overflow-hidden">
+
+                <!-- Book Image -->
+                <img src="/public/slider-image/slider-3.jpg" alt="বইয়ের গল্প"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+
+                <!-- Dark Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 flex h-full items-center">
+                  <div class="w-full px-6 sm:px-10 lg:px-16">
+
+                    <div class="max-w-3xl">
+
+                      <!-- Category -->
+                      <span class="mb-3 block font-bangla text-sm font-semibold text-[#02a39b]">
+                        চিন্তার জানালা
+                      </span>
+
+                      <!-- Title -->
+                      <h2 class="font-serifBangla text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                        একটি বই কীভাবে
+                        বদলে দিতে পারে জীবন
+                      </h2>
+
+                      <!-- Description -->
+                      <p class="mt-4 max-w-2xl font-bangla text-sm leading-7 text-white/80 sm:text-base">
+                        একটি ভালো বই শুধু গল্প বলে না,
+                        আমাদের চিন্তার জগতকেও নতুন করে সাজায়।
+                      </p>
+
+                      <!-- Author -->
+                      <p class="mt-5 font-bangla text-sm text-white/70">
+                        আলী আব্দুল্লাহ · ৭ মিনিট পাঠ
+                      </p>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </article>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- =================================================
+             ARTICLE
+        ================================================== -->
+
+    <section id="article" class="py-7 sm:py-10">
+      <div class="mx-auto w-full max-w-6xl px-4">
+
+
+        <!-- Section Heading -->
+        <div class="mb-5 flex items-end gap-3">
+          <div>
+            <span class="text-[14px] font-bold text-[#02a39b]">
+              চিন্তার জানালা
+            </span>
+
+            <h2 class="font-serifBangla text-2xl font-bold text-[#073c39]">
+              প্রবন্ধ
+            </h2>
+          </div>
+
+          <span class="mb-2 h-0.5 flex-1 bg-[#02a39b]"></span>
+
+          <a href="#" class="mb-1 hidden text-[14px] font-bold text-[#02a39b] sm:block">
+            আরও পড়ুন →
+          </a>
+        </div>
+
+        <!-- Article Cards -->
+        <div id="article_cards" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- =================================================
+             INTERVIEW
+        ================================================== -->
+
+    <section id="interview" class="bg-white py-8 sm:py-12">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-5 flex items-end gap-3">
+
+          <div>
+
+            <span class="text-[14px] font-bold text-[#02a39b]">
+              মুখোমুখি
+            </span>
+
+            <h2 class="font-serifBangla text-2xl font-bold text-[#073c39]">
+              সাক্ষাৎকার
+            </h2>
+
+          </div>
+
+          <span class="mb-2 h-0.5 flex-1 bg-[#02a39b]"></span>
+
+        </div>
+
+
+        <div id="interview_section" class="grid grid-cols-1 gap-5 md:grid-cols-2">
+
+          <article class="group relative h-[360px] overflow-hidden rounded-md">
+
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85"
+              alt="সাক্ষাৎকার"
+              class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+            <div class="absolute bottom-0 p-6">
+
+              <span class="text-[14px] font-bold text-[#62ded7]">
+                মুখোমুখি
+              </span>
+
+              <h3 class="mt-2 font-serifBangla text-2xl font-bold leading-9 text-white">
+                “সাহিত্য মানুষকে
+                প্রশ্ন করতে শেখায়”
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="flex min-h-[360px] flex-col justify-center rounded-md border border-gray-200 bg-[#f7f8f6] p-7">
+
+            <span class="text-[14px] font-bold text-[#02a39b]">
+              সম্পাদকীয় আলাপ
+            </span>
+
+            <h3 class="mt-2 font-serifBangla text-2xl font-bold leading-9 text-[#073c39]">
+              লেখালেখি কি শুধু
+              গল্প বলার নাম?
+            </h3>
+
+            <p class="mt-4 text-xs leading-7 text-gray-500">
+              একজন লেখকের কাছে শব্দ শুধু শব্দ নয়।
+              প্রতিটি বাক্যের ভেতর থাকে অভিজ্ঞতা,
+              সময় এবং মানুষের প্রতি এক ধরনের দায়বদ্ধতা।
+            </p>
+
+            <a href="#"
+              class="mt-5 w-fit rounded-full bg-[#02a39b] px-5 py-2 text-[11px] font-semibold text-white transition hover:bg-[#073c39]">
+              সাক্ষাৎকার পড়ুন →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+             STORY
+        ================================================== -->
+
+    <section id="story" class="py-8 sm:py-12">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-5 flex items-end gap-3">
+
+          <div>
+
+            <span class="text-[14px] font-bold text-[#02a39b]">
+              গল্পের জগৎ
+            </span>
+
+            <h2 class="font-serifBangla text-2xl font-bold text-[#073c39]">
+              গল্প
+            </h2>
+
+          </div>
+
+          <span class="mb-2 h-0.5 flex-1 bg-[#02a39b]"></span>
+
+        </div>
+
+
+        <div id="story_section" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+             POETRY
+        ================================================== -->
+
+    <section id="poetry" class="bg-[#073c39] py-10 text-white">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-6 flex items-end gap-3">
+
+          <div>
+
+            <span class="text-[14px] font-bold text-[#61d9d3]">
+              শব্দের নন্দন
+            </span>
+
+            <h2 class="font-serifBangla text-2xl font-bold">
+              কবিতা
+            </h2>
+
+          </div>
+
+          <span class="mb-2 h-0.5 flex-1 bg-[#02a39b]"></span>
+
+        </div>
+
+
+        <div id="poetry_section" class="grid grid-cols-1 gap-4 md:grid-cols-3">
+
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+             FEATURE
+        ================================================== -->
+
+    <section id="feature" class="py-10">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-5 flex items-end gap-3">
+
+          <div>
+
+            <span class="text-[14px] font-bold text-[#02a39b]">
+              বিশেষ আয়োজন
+            </span>
+
+            <h2 class="font-serifBangla text-2xl font-bold text-[#073c39]">
+              ফিচার
+            </h2>
+
+          </div>
+
+          <span class="mb-2 h-0.5 flex-1 bg-[#02a39b]"></span>
+
+        </div>
+
+
+        <div id="feature_section" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+             ALL ISSUES
+        ================================================== -->
+
+    <section id="issues" class="border-y border-gray-200 bg-white py-10">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mb-7 text-center">
+
+          <span class="text-[9px] font-bold tracking-[4px] text-[#02a39b]">
+            ARCHIVE
+          </span>
+
+          <h2 class="mt-1 font-serifBangla text-2xl font-bold text-[#073c39]">
+            সবগুলো সংখ্যা
+          </h2>
+
+          <p class="mt-1 text-xs text-gray-500">
+            ভাবনাপত্রের প্রকাশিত সংখ্যাগুলো এক জায়গায়।
+          </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+
+
+          <article class="group text-center">
+
+            <div class="aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
+
+              <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=700&q=85"
+                alt="প্রথম সংখ্যা" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+            </div>
+
+            <h3 class="mt-3 font-serifBangla text-sm font-bold">
+              প্রথম সংখ্যা
+            </h3>
+
+            <p class="text-[14px] text-gray-400">
+              জানুয়ারি ২০২৬
+            </p>
+
+          </article>
+
+
+
+          <article class="group text-center">
+
+            <div class="aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
+
+              <img src="https://images.unsplash.com/photo-1511108690759-009324a90311?auto=format&fit=crop&w=700&q=85"
+                alt="দ্বিতীয় সংখ্যা" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+            </div>
+
+            <h3 class="mt-3 font-serifBangla text-sm font-bold">
+              দ্বিতীয় সংখ্যা
+            </h3>
+
+            <p class="text-[14px] text-gray-400">
+              এপ্রিল ২০২৬
+            </p>
+
+          </article>
+
+
+
+          <article class="group text-center">
+
+            <div class="aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
+
+              <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=700&q=85"
+                alt="তৃতীয় সংখ্যা" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+            </div>
+
+            <h3 class="mt-3 font-serifBangla text-sm font-bold">
+              তৃতীয় সংখ্যা
+            </h3>
+
+            <p class="text-[14px] text-gray-400">
+              জুলাই ২০২৬
+            </p>
+
+          </article>
+
+
+
+          <article class="group text-center">
+
+            <div class="aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
+
+              <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=700&q=85"
+                alt="প্রথম সংখ্যা" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+            </div>
+
+            <h3 class="mt-3 font-serifBangla text-sm font-bold">
+              প্রথম সংখ্যা
+            </h3>
+
+            <p class="text-[14px] text-gray-400">
+              জানুয়ারি ২০২৬
+            </p>
+
+          </article>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+             NEWSLETTER
+        ================================================== -->
+
+    <section class="py-10">
+
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="rounded-md bg-[#02a39b] px-5 py-10 text-center text-white sm:px-10">
+
+          <span class="text-[14px] font-semibold tracking-[2px] text-white/70">
+            ভাবনাপত্র পরিবার
+          </span>
+
+          <h2 class="mt-2 font-serifBangla text-2xl font-bold">
+            নতুন লেখা মিস করতে চান না?
+          </h2>
+
+          <p class="mx-auto mt-2 max-w-xl text-xs leading-6 text-white/75">
+            নতুন প্রবন্ধ, গল্প, কবিতা ও বিশেষ আয়োজনের
+            খবর সরাসরি আপনার ইনবক্সে।
+          </p>
+
+          <div class="mx-auto mt-5 flex max-w-md flex-col gap-2 sm:flex-row">
+
+            <input type="email" placeholder="আপনার ইমেইল ঠিকানা"
+              class="h-11 flex-1 rounded-full border-0 px-5 text-xs text-white outline-none bg-[#0b7772]">
+
+            <button class="rounded-full bg-[#073c39] px-6 py-3 text-xs font-semibold transition hover:bg-black">
+              যুক্ত হোন
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+  <footer id="footer" class="bg-[#073c39] text-white">
+
+    <div class="mx-auto max-w-6xl px-4 py-12">
+
+      <div class="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4">
+
+
+        <!-- Brand -->
+
+        <div>
+
+          <h2 class="font-serifBangla text-4xl font-extrabold tracking-[-3px]">
+            ভাবনাপত্র
+          </h2>
+
+          <p class="mt-3 max-w-xs text-xs leading-6 text-white/45">
+            ভাবনা, সাহিত্য, সংস্কৃতি ও মানুষের
+            গল্প নিয়ে একটি স্বাধীন বাংলা
+            সাহিত্য প্ল্যাটফর্ম।
+          </p>
+
+        </div>
+
+
+        <!-- Categories -->
+
+        <div>
+
+          <h3 class="mb-4 text-sm font-bold">
+            বিভাগ
+          </h3>
+
+          <div class="space-y-2 text-xs text-white/45">
+
+            <a href="#article" class="block hover:text-[#02a39b]">
+              প্রবন্ধ
+            </a>
+
+            <a href="#story" class="block hover:text-[#02a39b]">
+              গল্প
+            </a>
+
+            <a href="#poetry" class="block hover:text-[#02a39b]">
+              কবিতা
+            </a>
+
+            <a href="#interview" class="block hover:text-[#02a39b]">
+              সাক্ষাৎকার
+            </a>
+
+            <a href="#feature" class="block hover:text-[#02a39b]">
+              ফিচার
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Important -->
+
+        <div>
+
+          <h3 class="mb-4 text-sm font-bold">
+            গুরুত্বপূর্ণ
+          </h3>
+
+          <div class="space-y-2 text-xs text-white/45">
+
+            <a href="#" class="block hover:text-[#02a39b]">
+              আমাদের সম্পর্কে
+            </a>
+
+            <a href="./user.html" class="block hover:text-[#02a39b]">
+              লেখা পাঠানোর নিয়ম
+            </a>
+
+            <a href="#" class="block hover:text-[#02a39b]">
+              গোপনীয়তা নীতি
+            </a>
+
+            <a href="#" class="block hover:text-[#02a39b]">
+              শর্তাবলি
+            </a>
+
+            <a href="#" class="block hover:text-[#02a39b]">
+              যোগাযোগ
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Contact -->
+
+        <div>
+
+          <h3 class="mb-4 text-sm font-bold">
+            যোগাযোগ
+          </h3>
+
+          <div class="space-y-2 text-xs text-white/45">
+
+            <p>
+              ঢাকা, বাংলাদেশ
+            </p>
+
+            <p>
+              hello@bhabonapatra.com
+            </p>
+
+            <p>
+              +৮৮০ ১XXX-XXXXXX
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="mt-10 border-t border-white/10 pt-5 text-center text-[14px] text-white/30 sm:flex sm:justify-between">
+
+        <p>
+          © ২০২৬ ভাবনাপত্র — সর্বস্বত্ব সংরক্ষিত
+        </p>
+
+        <p class="mt-2 sm:mt-0">
+          সাহিত্য • সংস্কৃতি • চিন্তা
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <div id="adminLoginModal"
+    class="fixed inset-0 z-[999] hidden items-center justify-center bg-[#073c39]/60 px-5 py-8 backdrop-blur-sm">
+    <!-- Modal -->
+    <div id="adminLoginBox"
+      class="relative w-full max-w-md scale-95 rounded-3xl bg-white p-6 opacity-0 shadow-2xl transition-all duration-300 sm:p-8">
+      <!-- Close Button --> <button id="closeAdminModal" type="button"
+        class="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-[#02a39b] hover:text-white">
+        <i class="fa-solid fa-xmark"></i> </button> <!-- Logo -->
+      <div class="text-center">
+        <h2 class="font-serifBangla text-4xl font-extrabold tracking-[-3px] text-[#073c39]"> ভাবনাপত্র </h2>
+        <div class="mt-3 flex items-center justify-center gap-2 text-[14px] tracking-[2px] text-[#073c39]"> <span
+            class="h-0.5 w-8 bg-[#02a39b]"></span> Admin Panel <span class="h-0.5 w-8 bg-[#02a39b]"></span> </div>
+      </div> <!-- Icon -->
+      <div
+        class="mx-auto mt-7 flex h-16 w-16 items-center justify-center rounded-full bg-[#02a39b]/10 text-2xl text-[#02a39b]">
+        <i class="fa-solid fa-user-shield"></i> </div> <!-- Heading -->
+      <div class="mt-5 text-center">
+        <h3 class="font-serifBangla text-2xl font-bold text-[#073c39]"> Admin Login </h3>
+        <p class="mt-2 text-[14px] leading-6 text-gray-500"> প্রশাসনিক প্যানেলে প্রবেশ করতে লগইন করুন। </p>
+      </div> <!-- Form -->
+      <form id="adminLoginForm" class="mt-7 space-y-4"> <!-- Username -->
+        <div> <label for="adminUsername" class="mb-2 block text-[15px] font-semibold text-[#073c39]"> ইউজারনেম / ইমেইল
+          </label>
+          <div class="relative"> <i class="fa-regular fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+            </i> <input id="adminUsername" type="text" placeholder="আপনার ইউজারনেম বা ইমেইল" required
+              class="h-13 w-full rounded-xl border border-gray-200 bg-[#f8faf9] pl-11 pr-4 text-[15px] outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-4 focus:ring-[#02a39b]/10">
+          </div>
+        </div> <!-- Password -->
+        <div> <label for="adminPassword" class="mb-2 block text-[15px] font-semibold text-[#073c39]"> পাসওয়ার্ড </label>
+          <div class="relative"> <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+            </i> <input id="adminPassword" type="password" placeholder="আপনার পাসওয়ার্ড" required
+              class="h-13 w-full rounded-xl border border-gray-200 bg-[#f8faf9] pl-11 pr-12 text-[15px] outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-4 focus:ring-[#02a39b]/10">
+            <!-- Show Password --> 
+             <button id="toggleAdminPassword" type="button"
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-[#02a39b]"> <i
+                id="adminPasswordIcon" class="fa-regular fa-eye"> </i> </button> 
+              </div>
+        </div> 
+        <!-- Error -->
+        <p id="adminLoginError" class="hidden rounded-lg bg-red-50 px-4 py-2 text-center text-[14px] text-red-500">
+          ইউজারনেম অথবা পাসওয়ার্ড সঠিক নয়। </p> <!-- Login Button --> <button type="submit"
+          class="group flex h-13 w-full items-center justify-center gap-2 rounded-xl bg-[#02a39b] text-[16px] font-bold text-white transition hover:bg-[#064d49]">
+          <span>Sign In</span>
+           <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"> </i> </button>
+      </form> 
+      <!-- Footer -->
+      <div class="mt-6 text-center">
+        <p class="text-[13px] text-gray-400"> <i class="fa-solid fa-shield-halved mr-1 text-[#02a39b]"></i> নিরাপদ
+          প্রশাসনিক প্রবেশ </p>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

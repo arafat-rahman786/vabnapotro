@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>লেখা পাঠান | ভাবনাপত্র</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./src/assets/css/all.min.css">
+
+    <!-- Bengali Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#02a39b",
+                        darkGreen: "#064e4a",
+                        softGreen: "#e8f7f5"
+                    },
+                    fontFamily: {
+                        serifBangla: ["Noto Serif Bengali", "serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+
+<body class="bg-[#f7fbfa] text-[#183c39] font-serifBangla">
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="sticky top-0 z-50 px-4 pt-4">
+
+        <nav
+            class="mx-auto max-w-7xl rounded-2xl border border-[#02a39b]/20 bg-white/90 px-5 py-4 shadow-sm backdrop-blur-md"
+        >
+
+            <div class="flex items-center justify-between gap-6">
+
+                <!-- Logo -->
+
+                <a
+                    href="./index.html"
+                    class="flex items-center gap-3"
+                >
+
+                    <div
+                        class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#02a39b] text-xl font-bold text-white"
+                    >
+                        ভ
+                    </div>
+
+                    <div>
+                        <h1 class="text-xl font-bold text-[#064e4a]">
+                            ভাবনাপত্র
+                        </h1>
+
+                        <p class="text-xs text-gray-500">
+                            ভাবনার পাতায় আপনাকে স্বাগতম
+                        </p>
+                    </div>
+
+                </a>
+
+
+                <!-- Desktop Menu -->
+
+                <div class="hidden items-center gap-7 text-[15px] font-semibold lg:flex">
+
+                    <a
+                        href="./index.html"
+                        class="transition hover:text-[#02a39b]"
+                    >
+                        প্রচ্ছদ
+                    </a>
+
+                    <a
+                        href="./index.html#articles"
+                        class="transition hover:text-[#02a39b]"
+                    >
+                        প্রবন্ধ
+                    </a>
+
+                    <a
+                        href="./index.html#stories"
+                        class="transition hover:text-[#02a39b]"
+                    >
+                        গল্প
+                    </a>
+
+                    <a
+                        href="./index.html#poetry"
+                        class="transition hover:text-[#02a39b]"
+                    >
+                        কবিতা
+                    </a>
+
+                    <a
+                        href="./index.html#interview"
+                        class="transition hover:text-[#02a39b]"
+                    >
+                        সাক্ষাৎকার
+                    </a>
+
+                </div>
+
+
+                <!-- Submit Button -->
+
+                <a
+                    href="#submit-form"
+                    class="hidden rounded-xl bg-[#02a39b] px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-[#064e4a] sm:block"
+                >
+                    লেখা পাঠান
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="px-4 pb-10 pt-16">
+
+        <div class="mx-auto max-w-4xl text-center">
+
+            <span
+                class="inline-flex rounded-full bg-[#02a39b]/10 px-5 py-2 text-sm font-semibold text-[#02a39b]"
+            >
+                আপনার ভাবনা আমাদের কাছে পাঠান
+            </span>
+
+
+            <h2
+                class="mt-6 text-4xl font-bold leading-tight text-[#064e4a] sm:text-5xl lg:text-6xl"
+            >
+                আপনার লেখা পাঠান
+            </h2>
+
+
+            <p
+                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg"
+            >
+                আপনার চিন্তা, অনুভূতি, গল্প, কবিতা কিংবা প্রবন্ধ
+                আমাদের সঙ্গে ভাগ করে নিন। নির্বাচিত লেখা
+                ভাবনাপত্রে প্রকাশ করা হবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN FORM
+    ========================== -->
+
+    <main
+        id="submit-form"
+        class="px-4 pb-20"
+    >
+
+        <div class="mx-auto max-w-5xl">
+
+            <form
+                id="userSubmissionForm"
+                class="space-y-8"
+            >
+
+
+                <!-- =========================
+                     AUTHOR INFORMATION
+                ========================== -->
+
+                <section
+                    class="rounded-3xl border border-[#02a39b]/20 bg-white p-6 shadow-sm sm:p-8"
+                >
+
+                    <div class="mb-7">
+
+                        <p class="text-sm font-semibold text-[#02a39b]">
+                            ০১
+                        </p>
+
+                        <h3 class="mt-1 text-2xl font-bold text-[#064e4a]">
+                            লেখকের তথ্য
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+                            আপনার সঙ্গে যোগাযোগের জন্য প্রয়োজনীয় তথ্য দিন।
+                        </p>
+
+                    </div>
+
+
+                    <div class="grid gap-6 md:grid-cols-2">
+
+
+                        <!-- Name -->
+
+                        <div>
+
+                            <label
+                                for="authorName"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                আপনার নাম
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <input
+                                id="authorName"
+                                name="author"
+                                type="text"
+                                required
+                                placeholder="আপনার পূর্ণ নাম লিখুন"
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div>
+
+                            <label
+                                for="authorEmail"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                ইমেইল
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <input
+                                id="authorEmail"
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="example@gmail.com"
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                        </div>
+
+
+                        <!-- Phone -->
+
+                        <div>
+
+                            <label
+                                for="authorPhone"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                মোবাইল নম্বর
+                            </label>
+
+                            <input
+                                id="authorPhone"
+                                name="phone"
+                                type="tel"
+                                placeholder="01XXXXXXXXX"
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                        </div>
+
+
+                        <!-- Location -->
+
+                        <div>
+
+                            <label
+                                for="authorLocation"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                আপনার অবস্থান
+                            </label>
+
+                            <input
+                                id="authorLocation"
+                                name="location"
+                                type="text"
+                                placeholder="যেমন: ঢাকা, বাংলাদেশ"
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     ARTICLE INFORMATION
+                ========================== -->
+
+                <section
+                    class="rounded-3xl border border-[#02a39b]/20 bg-white p-6 shadow-sm sm:p-8"
+                >
+
+                    <div class="mb-7">
+
+                        <p class="text-sm font-semibold text-[#02a39b]">
+                            ০২
+                        </p>
+
+                        <h3 class="mt-1 text-2xl font-bold text-[#064e4a]">
+                            লেখার তথ্য
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+                            আপনার লেখাটি সম্পর্কে প্রয়োজনীয় তথ্য দিন।
+                        </p>
+
+                    </div>
+
+
+                    <div class="space-y-6">
+
+
+                        <!-- Title -->
+
+                        <div>
+
+                            <label
+                                for="articleTitle"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                লেখার শিরোনাম
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <input
+                                id="articleTitle"
+                                name="name"
+                                type="text"
+                                required
+                                placeholder="আপনার লেখার সুন্দর একটি শিরোনাম দিন"
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-4 text-base font-semibold outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div>
+
+                            <label
+                                for="articleCategory"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                লেখার বিভাগ
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <select
+                                id="articleCategory"
+                                name="category"
+                                required
+                                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            >
+
+                                <option value="">
+                                    বিভাগ নির্বাচন করুন
+                                </option>
+
+                                <option value="গল্প">
+                                    গল্প
+                                </option>
+
+                                <option value="প্রবন্ধ">
+                                    প্রবন্ধ
+                                </option>
+
+                                <option value="কবিতা">
+                                    কবিতা
+                                </option>
+
+                                <option value="উদ্ধৃতি">
+                                    উদ্ধৃতি
+                                </option>
+
+                                <option value="ফিচার">
+                                    ফিচার
+                                </option>
+
+                                <option value="সাক্ষাৎকার">
+                                    সাক্ষাৎকার
+                                </option>
+
+                                <option value="সংস্কৃতি">
+                                    সংস্কৃতি
+                                </option>
+
+                            </select>
+
+                            <p class="mt-2 text-xs text-gray-500">
+                                বিভাগ অনুযায়ী আপনার লেখাটি আলাদা ডিজাইনে প্রকাশিত হবে।
+                            </p>
+
+                        </div>
+
+
+                        <!-- Featured Image -->
+
+                        <div>
+
+                            <label
+                                class="mb-3 block text-sm font-bold text-gray-700"
+                            >
+                                প্রচ্ছদ ছবি
+                                <span class="text-red-500">*</span>
+                            </label>
+
+
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+
+
+                                <!-- Image 1 -->
+
+                                <label class="group cursor-pointer">
+
+                                    <input
+                                        type="radio"
+                                        name="featuredImage"
+                                        value="book-1.jpg"
+                                        class="peer sr-only"
+                                    >
+
+                                    <div
+                                        class="overflow-hidden rounded-2xl border-2 border-transparent bg-gray-50 transition peer-checked:border-[#02a39b] peer-checked:ring-2 peer-checked:ring-[#02a39b]/10"
+                                    >
+
+                                        <img
+                                            src="./src/assets/image/book-1.jpg"
+                                            alt="Book 1"
+                                            class="h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+                                        >
+
+                                        <p
+                                            class="px-2 py-2 text-center text-xs text-gray-500"
+                                        >
+                                            book-1.jpg
+                                        </p>
+
+                                    </div>
+
+                                </label>
+
+
+                                <!-- Image 2 -->
+
+                                <label class="group cursor-pointer">
+
+                                    <input
+                                        type="radio"
+                                        name="featuredImage"
+                                        value="book-2.jpg"
+                                        class="peer sr-only"
+                                    >
+
+                                    <div
+                                        class="overflow-hidden rounded-2xl border-2 border-transparent bg-gray-50 transition peer-checked:border-[#02a39b] peer-checked:ring-2 peer-checked:ring-[#02a39b]/10"
+                                    >
+
+                                        <img
+                                            src="./src/assets/image/book-2.jpg"
+                                            alt="Book 2"
+                                            class="h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+                                        >
+
+                                        <p
+                                            class="px-2 py-2 text-center text-xs text-gray-500"
+                                        >
+                                            book-2.jpg
+                                        </p>
+
+                                    </div>
+
+                                </label>
+
+
+                                <!-- Image 3 -->
+
+                                <label class="group cursor-pointer">
+
+                                    <input
+                                        type="radio"
+                                        name="featuredImage"
+                                        value="book-3.jpg"
+                                        class="peer sr-only"
+                                    >
+
+                                    <div
+                                        class="overflow-hidden rounded-2xl border-2 border-transparent bg-gray-50 transition peer-checked:border-[#02a39b] peer-checked:ring-2 peer-checked:ring-[#02a39b]/10"
+                                    >
+
+                                        <img
+                                            src="./src/assets/image/book-3.jpg"
+                                            alt="Book 3"
+                                            class="h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+                                        >
+
+                                        <p
+                                            class="px-2 py-2 text-center text-xs text-gray-500"
+                                        >
+                                            book-3.jpg
+                                        </p>
+
+                                    </div>
+
+                                </label>
+
+
+                                <!-- Image 4 -->
+
+                                <label class="group cursor-pointer">
+
+                                    <input
+                                        type="radio"
+                                        name="featuredImage"
+                                        value="book-4.jpg"
+                                        class="peer sr-only"
+                                    >
+
+                                    <div
+                                        class="overflow-hidden rounded-2xl border-2 border-transparent bg-gray-50 transition peer-checked:border-[#02a39b] peer-checked:ring-2 peer-checked:ring-[#02a39b]/10"
+                                    >
+
+                                        <img
+                                            src="./src/assets/image/book-4.jpg"
+                                            alt="Book 4"
+                                            class="h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+                                        >
+
+                                        <p
+                                            class="px-2 py-2 text-center text-xs text-gray-500"
+                                        >
+                                            book-4.jpg
+                                        </p>
+
+                                    </div>
+
+                                </label>
+
+
+                                <!-- Image 5 -->
+
+                                <label class="group cursor-pointer">
+
+                                    <input
+                                        type="radio"
+                                        name="featuredImage"
+                                        value="book-5.jpg"
+                                        class="peer sr-only"
+                                    >
+
+                                    <div
+                                        class="overflow-hidden rounded-2xl border-2 border-transparent bg-gray-50 transition peer-checked:border-[#02a39b] peer-checked:ring-2 peer-checked:ring-[#02a39b]/10"
+                                    >
+
+                                        <img
+                                            src="./src/assets/image/book-5.jpg"
+                                            alt="Book 5"
+                                            class="h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+                                        >
+
+                                        <p
+                                            class="px-2 py-2 text-center text-xs text-gray-500"
+                                        >
+                                            book-5.jpg
+                                        </p>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Excerpt -->
+
+                        <div>
+
+                            <label
+                                for="articleExcerpt"
+                                class="mb-2 block text-sm font-bold text-gray-700"
+                            >
+                                সংক্ষিপ্ত পরিচিতি
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <textarea
+                                id="articleExcerpt"
+                                name="excerpt"
+                                rows="4"
+                                required
+                                placeholder="আপনার লেখাটি সম্পর্কে সংক্ষিপ্ত কিছু লিখুন..."
+                                class="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-4 text-sm leading-7 outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     ARTICLE CONTENT
+                ========================== -->
+
+                <section
+                    class="rounded-3xl border border-[#02a39b]/20 bg-white p-6 shadow-sm sm:p-8"
+                >
+
+                    <div class="mb-7">
+
+                        <p class="text-sm font-semibold text-[#02a39b]">
+                            ০৩
+                        </p>
+
+                        <h3 class="mt-1 text-2xl font-bold text-[#064e4a]">
+                            আপনার লেখা
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-gray-500">
+                            লেখাটিকে সুন্দরভাবে সাজাতে Paragraph, Heading,
+                            Quote অথবা Poem block ব্যবহার করতে পারেন।
+                        </p>
+
+                    </div>
+
+
+                    <!-- Hidden JSON -->
+
+                    <input
+                        type="hidden"
+                        id="article-content-data"
+                        name="content"
+                    >
+
+
+                    <!-- Content Blocks -->
+
+                    <div
+                        id="content-blocks"
+                        class="space-y-5"
+                    ></div>
+
+
+                    <!-- Empty State -->
+
+                    <div
+                        id="content-empty-state"
+                        class="rounded-2xl border-2 border-dashed border-[#02a39b]/20 bg-[#f5fbfa] px-5 py-12 text-center"
+                    >
+
+                        <div
+                            class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#02a39b]/10 text-xl text-[#02a39b]"
+                        >
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </div>
+
+                        <h4 class="mt-4 text-lg font-bold text-[#064e4a]">
+                            আপনার লেখা শুরু করুন
+                        </h4>
+
+                        <p class="mt-2 text-sm text-gray-500">
+                            নিচের বাটন থেকে একটি content block যোগ করুন।
+                        </p>
+
+                    </div>
+
+
+                    <!-- Add Content -->
+
+                    <div class="relative mt-6">
+
+                        <button
+                            type="button"
+                            id="add-content-block"
+                            class="flex w-full items-center justify-center gap-2 rounded-xl border border-[#02a39b]/30 bg-[#02a39b]/5 px-5 py-3.5 text-sm font-bold text-[#02a39b] transition hover:bg-[#02a39b] hover:text-white"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                            লেখা যোগ করুন
+                        </button>
+
+
+                        <!-- Content Type Menu -->
+
+                        <div
+                            id="content-type-menu"
+                            class="absolute bottom-full left-0 right-0 z-20 mb-2 hidden overflow-hidden rounded-2xl border border-[#02a39b]/20 bg-white p-2 shadow-xl"
+                        >
+
+                            <button
+                                type="button"
+                                data-block-type="paragraph"
+                                class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm transition hover:bg-[#02a39b]/10"
+                            >
+                                <span class="text-[#02a39b]">
+                                    <i class="fa-solid fa-align-left"></i>
+                                </span>
+
+                                <span>
+                                    <strong class="block text-[#064e4a]">
+                                        Paragraph
+                                    </strong>
+
+                                    <small class="text-gray-500">
+                                        সাধারণ লেখা
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                data-block-type="heading"
+                                class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm transition hover:bg-[#02a39b]/10"
+                            >
+                                <span class="text-[#02a39b]">
+                                    <i class="fa-solid fa-heading"></i>
+                                </span>
+
+                                <span>
+                                    <strong class="block text-[#064e4a]">
+                                        Heading
+                                    </strong>
+
+                                    <small class="text-gray-500">
+                                        উপশিরোনাম
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                data-block-type="quote"
+                                class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm transition hover:bg-[#02a39b]/10"
+                            >
+                                <span class="text-[#02a39b]">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </span>
+
+                                <span>
+                                    <strong class="block text-[#064e4a]">
+                                        Quote
+                                    </strong>
+
+                                    <small class="text-gray-500">
+                                        গুরুত্বপূর্ণ উক্তি
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                data-block-type="poem"
+                                class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm transition hover:bg-[#02a39b]/10"
+                            >
+                                <span class="text-[#02a39b]">
+                                    <i class="fa-solid fa-feather"></i>
+                                </span>
+
+                                <span>
+                                    <strong class="block text-[#064e4a]">
+                                        Poem
+                                    </strong>
+
+                                    <small class="text-gray-500">
+                                        কবিতার অংশ
+                                    </small>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     TAGS
+                ========================== -->
+
+                <section
+                    class="rounded-3xl border border-[#02a39b]/20 bg-white p-6 shadow-sm sm:p-8"
+                >
+
+                    <div class="mb-6">
+
+                        <p class="text-sm font-semibold text-[#02a39b]">
+                            ০৪
+                        </p>
+
+                        <h3 class="mt-1 text-2xl font-bold text-[#064e4a]">
+                            অন্যান্য তথ্য
+                        </h3>
+
+                    </div>
+
+
+                    <div>
+
+                        <label
+                            for="articleTags"
+                            class="mb-2 block text-sm font-bold text-gray-700"
+                        >
+                            ট্যাগ
+                        </label>
+
+                        <input
+                            id="articleTags"
+                            name="tags"
+                            type="text"
+                            placeholder="যেমন: জীবন, সাহিত্য, দর্শন, বই"
+                            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3.5 text-sm outline-none transition focus:border-[#02a39b] focus:bg-white focus:ring-2 focus:ring-[#02a39b]/10"
+                        >
+
+                        <p class="mt-2 text-xs text-gray-500">
+                            একাধিক tag দিতে চাইলে কমা (,) ব্যবহার করুন।
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     SUBMIT INFORMATION
+                ========================== -->
+
+                <section
+                    class="rounded-3xl border border-[#02a39b]/20 bg-[#064e4a] p-6 text-white shadow-sm sm:p-8"
+                >
+
+                    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold">
+                                লেখা পাঠানোর আগে
+                            </h3>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-white/70">
+                                আপনার লেখা প্রথমে আমাদের সম্পাদকীয় টিম পর্যালোচনা করবে।
+                                অনুমোদনের পরেই লেখাটি ভাবনাপত্রে প্রকাশিত হবে।
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            id="submitArticle"
+                            class="shrink-0 rounded-xl bg-[#02a39b] px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-white hover:text-[#064e4a]"
+                        >
+                            <i class="fa-solid fa-paper-plane mr-2"></i>
+                            লেখা পাঠিয়ে দিন
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="border-t border-[#02a39b]/10 bg-white">
+
+        <div class="mx-auto max-w-7xl px-5 py-8 text-center">
+
+            <h3 class="text-xl font-bold text-[#064e4a]">
+                ভাবনাপত্র
+            </h3>
+
+            <p class="mt-2 text-sm text-gray-500">
+                আপনার ভাবনা, আমাদের পাতায়।
+            </p>
+
+            <p class="mt-5 text-xs text-gray-400">
+                © ২০২৬ ভাবনাপত্র। সর্বস্বত্ব সংরক্ষিত।
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script type="module" src="./src/main.ts"></script>
+
+</body>
+
+</html>
