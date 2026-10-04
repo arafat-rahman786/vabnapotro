@@ -1,6 +1,7 @@
 import api from '../../../lib/api';
 
 import type { upload_blog } from '../type/deshboard.type';
+import { getImageUrl } from './image-url';
 
 let upload_blog_form =
     document.getElementById('upload_blog_form') as HTMLFormElement | null;
@@ -258,8 +259,7 @@ export async function randerHtml() {
     }
 
     data.forEach((item: upload_blog) => {
-        let imagePath =
-            `./src/assets/image/${item.image}`;
+        let imagePath = getImageUrl(item.image);
         if (item.category === "প্রবন্ধ") {
 
             BigStoryhtml += `
