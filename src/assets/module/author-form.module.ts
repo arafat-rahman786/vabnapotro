@@ -20,7 +20,7 @@ author_image.addEventListener("change",()=>{
 
 
 
-author_from.addEventListener("submit",async(e)=>{
+author_from?.addEventListener("submit",async(e)=>{
     e.preventDefault()
     let fromData = new FormData(author_from)
     let enteries = Object.fromEntries(fromData)
@@ -34,12 +34,12 @@ author_from.addEventListener("submit",async(e)=>{
     try {
         await api.post('/authorDitails',authorData)
         confirm("posted")
+        author_from.reset()
         
     } catch (error) {
        alert("never posted") 
     }
     }
     if(file)
-    reader.readAsDataURL(file)
-    author_from.reset()
+    await reader.readAsDataURL(file)
 })
