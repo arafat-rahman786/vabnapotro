@@ -1,7 +1,6 @@
 import api from '../../../lib/api'
 import type { UserInformetion } from '../type/user.type'
 import { randerHtml } from '../module/deshboard.module'
-import Swal from 'sweetalert2'
 
 const addContentButton =
     document.getElementById("add-content-block");
