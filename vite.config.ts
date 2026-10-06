@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+
   plugins: [
     tailwindcss(),
   ],
@@ -15,6 +16,8 @@ export default defineConfig({
         dashboard: resolve(__dirname, 'deshboard.html'),
         edit: resolve(__dirname, 'edit.html'),
         user: resolve(__dirname, 'user.html'),
+        author:resolve(__dirname, 'author-from.html'),
+        authorSection: resolve(__dirname, 'author-section.html')
       }
     }
   },
@@ -24,4 +27,5 @@ export default defineConfig({
       ignored: ['**/db.json']
     }
   }
+
 })

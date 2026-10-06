@@ -315,41 +315,42 @@ pending_submission_list?.addEventListener("click", async (e: any) => {
     await api.delete(`/pendingSubmissions/${findId}`)
     submissionRander()
     randerHtml()
+    window.location.reload()
 })
 
 
-pending_submission_list?.addEventListener("click", async (e: any) => {
-    let approveBtn = e.target.closest(".approve")
-    let findId = approveBtn.dataset.approveId
-    const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: "btn btn-success",
-    cancelButton: "btn btn-danger"
-  },
-  buttonsStyling: false
-});
-swalWithBootstrapButtons.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonText: "Yes, delete it!",
-  cancelButtonText: "No, cancel!",
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) swalWithBootstrapButtons.fire({
-    title: "Deleted!",
-    text: "Your file has been deleted.",
-    icon: "success"
-  });
-  else if (result.dismiss === Swal.DismissReason.cancel)
- /* Read more about handling dismissals below */
-  swalWithBootstrapButtons.fire({
-    title: "Cancelled",
-    text: "Your imaginary file is safe :)",
-    icon: "error"
-  });
-});
-    await api.delete(`/pendingSubmissions/${findId}`)
-    submissionRander()
-})
+// pending_submission_list?.addEventListener("click", async (e: any) => {
+//     let approveBtn = e.target.closest(".approve")
+//     let findId = approveBtn.dataset.approveId
+//     const swalWithBootstrapButtons = Swal.mixin({
+//   customClass: {
+//     confirmButton: "btn btn-success",
+//     cancelButton: "btn btn-danger"
+//   },
+//   buttonsStyling: false
+// });
+// swalWithBootstrapButtons.fire({
+//   title: "Are you sure?",
+//   text: "You won't be able to revert this!",
+//   icon: "warning",
+//   showCancelButton: true,
+//   confirmButtonText: "Yes, delete it!",
+//   cancelButtonText: "No, cancel!",
+//   reverseButtons: true
+// }).then((result) => {
+//   if (result.isConfirmed) swalWithBootstrapButtons.fire({
+//     title: "Deleted!",
+//     text: "Your file has been deleted.",
+//     icon: "success"
+//   });
+//   else if (result.dismiss === Swal.DismissReason.cancel)
+//  /* Read more about handling dismissals below */
+//   swalWithBootstrapButtons.fire({
+//     title: "Cancelled",
+//     text: "Your imaginary file is safe :)",
+//     icon: "error"
+//   });
+// });
+//     await api.delete(`/pendingSubmissions/${findId}`)
+//     submissionRander()
+// })
