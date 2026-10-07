@@ -6,7 +6,7 @@ let author_image_placeholder = document.getElementById("author-image-placeholder
 let author_image_preview = document.getElementById("author-image-preview") as HTMLImageElement
 
 
-author_image.addEventListener("change",()=>{
+author_image?.addEventListener("change",()=>{
     const file = author_image.files?.[0]
     if(file){
         author_image_preview.src = URL.createObjectURL(file)

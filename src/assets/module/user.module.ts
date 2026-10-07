@@ -1,38 +1,98 @@
-import api from '../../../lib/api'
-import type { UserInformetion } from '../type/user.type'
-import { randerHtml } from '../module/deshboard.module'
+import api from "../../../lib/api"
+import type { UserInformetion } from "../type/user.type"
+import { randerHtml } from "../module/deshboard.module"
+import { getImageUrl } from "./image-url"
+
+
+// ========================================
+// CONTENT ELEMENTS
+// ========================================
 
 const addContentButton =
-    document.getElementById("add-content-block");
+    document.getElementById("add-content-block")
 
 const contentTypeMenu =
-    document.getElementById("content-type-menu");
+    document.getElementById("content-type-menu")
 
 const contentBlocks =
-    document.getElementById("content-blocks");
+    document.getElementById("content-blocks")
 
 const emptyState =
-    document.getElementById("content-empty-state") as HTMLInputElement
+    document.getElementById("content-empty-state") as HTMLDivElement
 
-let authorName = document.getElementById('authorName') as HTMLInputElement
-let authorEmail = document.getElementById('authorEmail') as HTMLInputElement
-let authorPhone = document.getElementById('authorPhone') as HTMLInputElement
-let authorLocation = document.getElementById('authorLocation') as HTMLInputElement
-let articleTitle = document.getElementById('articleTitle') as HTMLInputElement
-let articleCategory = document.getElementById('articleCategory') as HTMLInputElement
-let featuredImageInputs = document.querySelectorAll<HTMLInputElement>('input[name="featuredImage"]');
-let articleExcerpt = document.getElementById('articleExcerpt') as HTMLInputElement
-let articleTags = document.getElementById('articleTags') as HTMLInputElement
-let pending_card_count = document.getElementById('pending-card-count') as HTMLInputElement
 
-let submitArticle = document.getElementById("submitArticle") as HTMLButtonElement
+// ========================================
+// AUTHOR INFORMATION
+// ========================================
 
+const authorName =
+    document.getElementById("authorName") as HTMLInputElement
+
+const authorEmail =
+    document.getElementById("authorEmail") as HTMLInputElement
+
+const authorPhone =
+    document.getElementById("authorPhone") as HTMLInputElement
+
+const authorLocation =
+    document.getElementById("authorLocation") as HTMLInputElement
+
+
+// ========================================
+// ARTICLE INFORMATION
+// ========================================
+
+const articleTitle =
+    document.getElementById("articleTitle") as HTMLInputElement
+
+const articleCategory =
+    document.getElementById("articleCategory") as HTMLSelectElement
+
+const articleExcerpt =
+    document.getElementById("articleExcerpt") as HTMLTextAreaElement
+
+const articleTags =
+    document.getElementById("articleTags") as HTMLInputElement
+
+
+// ========================================
+// IMAGE ELEMENTS
+// ========================================
+
+const featuredImageInputs =
+    document.querySelectorAll<HTMLInputElement>(
+        'input[name="featuredImage"]'
+    )
+
+
+// ========================================
+// DASHBOARD ELEMENTS
+// ========================================
+
+const pendingCardCount =
+    document.getElementById("pending-card-count") as HTMLSpanElement
+
+const userSubmissionForm =
+    document.getElementById("userSubmissionForm") as HTMLFormElement | null
+
+const pendingSubmissionList =
+    document.getElementById("pending-submission-list")
+
+
+// ========================================
+// ADD CONTENT BLOCK MENU
+// ========================================
 
 addContentButton?.addEventListener("click", () => {
-    contentTypeMenu?.classList.toggle("hidden");
 
-});
+    contentTypeMenu?.classList.toggle("hidden")
 
+})
+
+
+// ========================================
+// CREATE CONTENT BLOCK
+// ========================================
 
 document
     .querySelectorAll("[data-block-type]")
@@ -41,315 +101,664 @@ document
         button.addEventListener("click", () => {
 
             const type =
-                button.getAttribute("data-block-type");
+                button.getAttribute("data-block-type")
 
-            if (!type || !contentBlocks) return;
+            if (!type || !contentBlocks) return
 
 
-            emptyState?.classList.add("hidden");
+            // Hide empty state
+            emptyState?.classList.add("hidden")
 
+
+            // Create block
             const block =
-                document.createElement("div");
+                document.createElement("div")
+
 
             block.className =
-                "rounded-2xl border border-gray-200 bg-gray-50 p-5";
+                "rounded-2xl border border-gray-200 bg-gray-50 p-5"
 
 
-            let label = "Paragraph";
+            // Default values
+            let label = "Paragraph"
+
             let placeholder =
-                "আপনার লেখা এখানে লিখুন...";
+                "আপনার লেখা এখানে লিখুন..."
 
+
+            // Heading
             if (type === "heading") {
-                label = "Heading";
+
+                label = "Heading"
+
                 placeholder =
-                    "উপশিরোনাম লিখুন...";
+                    "উপশিরোনাম লিখুন..."
             }
 
+
+            // Quote
             if (type === "quote") {
-                label = "Quote";
+
+                label = "Quote"
+
                 placeholder =
-                    "উক্তিটি এখানে লিখুন...";
+                    "উক্তিটি এখানে লিখুন..."
             }
 
+
+            // Poem
             if (type === "poem") {
-                label = "Poem";
+
+                label = "Poem"
+
                 placeholder =
-                    "কবিতার লাইনগুলো এখানে লিখুন...";
+                    "কবিতার লাইনগুলো এখানে লিখুন..."
             }
 
 
+            // Block HTML
             block.innerHTML = `
+                <div class="mb-3 flex items-center justify-between">
 
-                        <div class="mb-3 flex items-center justify-between">
+                    <span class="text-sm font-bold text-[#064e4a]">
+                        ${label}
+                    </span>
 
-                            <span class="text-sm font-bold text-[#064e4a]">
-                                ${label}
-                            </span>
+                    <button
+                        type="button"
+                        class="remove-content-block text-sm text-red-500 transition hover:text-red-700"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                        বাদ দিন
+                    </button>
 
-                            <button
-                                type="button"
-                                class="remove-content-block text-sm text-red-500 transition hover:text-red-700"
-                            >
-                                <i class="fa-solid fa-trash"></i>
-                                বাদ দিন
-                            </button>
-
-                        </div>
-
-
-                        <textarea
-                            data-content-type="${type}"
-                            rows="${type === "poem" ? 7 : 5}"
-                            placeholder="${placeholder}"
-                            class="w-full resize-y rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm leading-7 outline-none transition focus:border-[#02a39b] focus:ring-2 focus:ring-[#02a39b]/10"
-                        ></textarea>
-
-                    `;
+                </div>
 
 
-            contentBlocks.appendChild(block);
+                <textarea
+                    data-content-type="${type}"
+                    rows="${type === "poem" ? 7 : 5}"
+                    placeholder="${placeholder}"
+                    class="w-full resize-y rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm leading-7 outline-none transition focus:border-[#02a39b] focus:ring-2 focus:ring-[#02a39b]/10"
+                ></textarea>
+            `
 
-            contentTypeMenu?.classList.add("hidden");
+
+            // Add block
+            contentBlocks.appendChild(block)
 
 
+            // Hide menu
+            contentTypeMenu?.classList.add("hidden")
+
+
+            // Remove block
             block
                 .querySelector(".remove-content-block")
                 ?.addEventListener("click", () => {
 
-                    block.remove();
+                    block.remove()
 
+
+                    // Show empty state if no block
                     if (
                         contentBlocks.children.length === 0
                     ) {
-                        emptyState?.classList.remove("hidden");
+
+                        emptyState?.classList.remove("hidden")
+
                     }
 
-                });
+                })
 
-        });
+        })
 
-    });
+    })
 
 
+// ========================================
+// FORM VALIDATION
+// ========================================
 
-function validation() {
+function validation(): boolean {
+
     if (
-        authorName.value == "" ||
-        authorEmail.value == "" ||
-        articleTitle.value == "" ||
-        articleCategory.value == "" ||
-        articleExcerpt.value == "" ||
+        authorName.value.trim() === "" ||
+
+        authorEmail.value.trim() === "" ||
+
+        articleTitle.value.trim() === "" ||
+
+        articleCategory.value === "" ||
+
+        articleExcerpt.value.trim() === "" ||
+
         contentBlocks?.children.length === 0 ||
-        !Array.from(featuredImageInputs).some(input => input.checked)
+
+        !getFeaturedImageValue()
     ) {
-        alert('fill your content')
+
+        alert("সব প্রয়োজনীয় তথ্য পূরণ করুন।")
+
         return false
-    } else {
-        return true
     }
+
+
+    return true
 }
 
-function getfeaturedImage() {
-    return Array.from(featuredImageInputs)
+
+function getFeaturedImageValue(): string {
+    return Array
+        .from(featuredImageInputs)
         .find(input => input.checked)
         ?.value ?? ""
 }
+
+
+// ========================================
+// GET CONTENT BLOCKS
+// ========================================
 
 function getContentBlocks() {
 
     if (!contentBlocks) return []
 
-    return Array.from(contentBlocks.children).map((block, index) => {
 
-        const textarea =
-            block.querySelector<HTMLTextAreaElement>("textarea")
+    return Array
+        .from(contentBlocks.children)
+        .map((block, index) => {
 
-        return {
-            id: crypto.randomUUID(),
-            type: textarea?.dataset.contentType ?? "paragraph",
-            text: textarea?.value.trim() ?? "",
-            order: index + 1
-        }
-    })
+            const textarea =
+                block.querySelector<HTMLTextAreaElement>(
+                    "textarea"
+                )
+
+
+            return {
+
+                id: crypto.randomUUID(),
+
+                type:
+                    textarea?.dataset.contentType ??
+                    "paragraph",
+
+                text:
+                    textarea?.value.trim() ??
+                    "",
+
+                order:
+                    index + 1
+            }
+
+        })
+
 }
 
 
-submitArticle?.addEventListener("click", async (e) => {
-    e.preventDefault()
-    if (!validation()) return
-    let submision: UserInformetion = {
-        id: crypto.randomUUID(),
-        username: authorName.value,
-        useremail: authorEmail.value,
-        phone: Number(authorPhone.value),
-        address: authorLocation.value,
-        contentname: articleTitle.value,
-        contentcategory: articleCategory.value,
-        contentimage: getfeaturedImage(),
-        contentexcerpt: articleExcerpt.value,
-        maincontent: JSON.stringify(getContentBlocks()),
-        contenttags: articleTags.value
+// ========================================
+// SUBMIT ARTICLE
+// ========================================
+
+userSubmissionForm?.addEventListener(
+    "submit",
+    async (e) => {
+
+        e.preventDefault()
+
+
+        // Validation
+        if (!validation()) return
+
+
+        try {
+
+            // ====================================
+            // CREATE SUBMISSION
+            // ====================================
+
+            const submission: UserInformetion = {
+
+                id:
+                    crypto.randomUUID(),
+
+                username:
+                    authorName.value.trim(),
+
+                useremail:
+                    authorEmail.value.trim(),
+
+                phone:
+                    authorPhone.value
+                        ? Number(authorPhone.value)
+                        : 0,
+
+                address:
+                    authorLocation.value.trim(),
+
+                contentname:
+                    articleTitle.value.trim(),
+
+                contentcategory:
+                    articleCategory.value,
+
+                contentimage:
+                    getFeaturedImageValue(),
+
+                contentexcerpt:
+                    articleExcerpt.value.trim(),
+
+                maincontent:
+                    JSON.stringify(
+                        getContentBlocks()
+                    ),
+
+                contenttags:
+                    articleTags.value.trim()
+
+            }
+
+
+            // ====================================
+            // SEND TO API
+            // ====================================
+
+            const response =
+                await api.post(
+                    "/pendingSubmissions",
+                    submission
+                )
+
+
+            console.log(
+                response.data
+            )
+
+
+            // ====================================
+            // SUCCESS
+            // ====================================
+
+            alert(
+                "আপনার লেখা সফলভাবে জমা হয়েছে।"
+            )
+
+
+            // ====================================
+            // RESET FORM
+            // ====================================
+
+            userSubmissionForm.reset()
+
+
+            // Reset content blocks
+            if (contentBlocks) {
+
+                contentBlocks.innerHTML = ""
+
+            }
+
+
+            // Show empty state
+            emptyState?.classList.remove(
+                "hidden"
+            )
+
+
+        } catch (error) {
+
+            console.error(error)
+
+            alert(
+                "লেখা জমা দেওয়া সম্ভব হয়নি।"
+            )
+
+        }
+
     }
+)
+
+
+// ========================================
+// RENDER PENDING SUBMISSIONS
+// ========================================
+
+async function submissionRender() {
 
     try {
 
-        const response = await api.post(
-            "/pendingSubmissions",
-            submision
-        )
-
-        console.log(response.data)
-
-        alert("আপনার লেখা সফলভাবে জমা হয়েছে।")
-        window.location.href = '/deshboard.html'
-
-    } catch (error) {
-
-        console.error(error)
-
-        alert("লেখা জমা দেওয়া সম্ভব হয়নি।")
-
-    }
-
-})
+        const res =
+            await api.get(
+                "/pendingSubmissions"
+            )
 
 
-let pending_submission_list = document.getElementById("pending-submission-list")
-
-async function submissionRander() {
-    let res = await api.get('/pendingSubmissions')
-    let data = res.data
-    if (pending_card_count) pending_card_count.textContent = String(data.length)
-    let submissionHtml = data.map((item: UserInformetion) => {
-        return` <div class="rounded-2xl border border-gray-200 bg-white p-6 transition hover:border-[#05aaa5]/30">
-
-                        <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        const data =
+            res.data
 
 
-                            <!-- Info -->
-                            <div class="flex gap-5">
+        // Pending count
+        if (pendingCardCount) {
 
-                                <div
-                                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#05aaa5]/10 text-xl font-bold text-[#05aaa5]">
-                                    R
-                                </div>
+            pendingCardCount.textContent =
+                String(data.length)
 
-                                <div>
+        }
 
-                                    <div class="flex flex-wrap items-center gap-3">
 
-                                        <h3 class="text-[20px] font-bold text-[#064d49]">
-                                            ${item.contentname}
-                                        </h3>
+        // Create HTML
+        const submissionHtml =
+            data.map(
+                (item: UserInformetion) => {
 
-                                        <span
-                                            class="rounded-full bg-orange-50 px-3 py-1 text-[14px] font-semibold text-orange-500">
-                                            অপেক্ষমাণ
-                                        </span>
+                    return `
+                        <div
+                            class="rounded-2xl border border-gray-200 bg-white p-6 transition hover:border-[#05aaa5]/30"
+                        >
+
+                            <div
+                                class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
+                            >
+
+                                <!-- Info -->
+
+                                <div class="flex items-center gap-5">
+
+                                    <img
+                                        src="${getImageUrl(item.contentimage)}"
+                                        alt="${item.contentname}"
+                                        class="h-20 w-28 shrink-0 rounded-xl object-cover"
+                                    />
+
+                                    <div
+                                        class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#05aaa5]/10 text-xl font-bold text-[#05aaa5]"
+                                    >
+                                        ${item.username
+                                            ?.charAt(0)
+                                            ?.toUpperCase() ?? "U"}
+                                    </div>
+
+
+                                    <div>
+
+                                        <div
+                                            class="flex flex-wrap items-center gap-3"
+                                        >
+
+                                            <h3
+                                                class="text-[20px] font-bold text-[#064d49]"
+                                            >
+                                                ${item.contentname}
+                                            </h3>
+
+
+                                            <span
+                                                class="rounded-full bg-orange-50 px-3 py-1 text-[14px] font-semibold text-orange-500"
+                                            >
+                                                অপেক্ষমাণ
+                                            </span>
+
+                                        </div>
+
+
+                                        <p
+                                            class="mt-2 text-[18px] text-gray-500"
+                                        >
+                                            লেখক:
+                                            ${item.username}
+                                        </p>
+
+
+                                        <p
+                                            class="mt-1 text-[14px] text-gray-400"
+                                        >
+                                            ${item.useremail}
+                                        </p>
 
                                     </div>
 
-                                    <p class="mt-2 text-[18px] text-gray-500">
-                                        লেখক: ${item.username}
-                                    </p>
-
-                                    <p class="mt-1 text-[14px] text-gray-400">
-                                        জমা দিয়েছেন: ২ অক্টোবর, ২০২৬
-                                    </p>
-
                                 </div>
 
-                            </div>
+
+                                <!-- Actions -->
+
+                                <div
+                                    class="flex flex-wrap gap-2"
+                                >
+
+                                    <a
+                                        href="edit.html?articleId=${item.id}&source=pending"
+                                        class="rounded-xl border border-gray-200 px-5 py-3 text-[18px] font-semibold text-gray-600 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600"
+                                    >
+                                        সম্পাদনা
+                                    </a>
 
 
-                            <!-- Actions -->
-                            <div class="flex flex-wrap gap-2">
+                                    <button
+                                        type="button"
+                                        data-approve-id="${item.id}"
+                                        class="approve rounded-xl bg-[#05aaa5] px-5 py-3 text-[18px] font-semibold text-white transition hover:bg-[#048f8b]"
+                                    >
+                                        Approve
+                                    </button>
 
-                                <a href="edit.html?articleId=${item.id}&source=pending"
-                                    class="rounded-xl border border-gray-200 px-5 py-3 text-[18px] font-semibold text-gray-600 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600">
-                                    সম্পাদনা
-                                </a>
 
-                                <button data-approve-id="${item.id}"
-                                    class="approve rounded-xl bg-[#05aaa5] px-5 py-3 text-[18px] font-semibold text-white transition hover:bg-[#048f8b]">
-                                    Approve
-                                </button>
+                                    <button
+                                        type="button"
+                                        data-delete-id="${item.id}"
+                                        class="delete-submission rounded-xl border border-red-100 px-5 py-3 text-[18px] font-semibold text-red-500 transition hover:bg-red-50"
+                                    >
+                                        Delete
+                                    </button>
 
-                                <button data-delete-id="${item.id}"
-                                    class="rounded-xl border border-red-100 px-5 py-3 text-[18px] font-semibold text-red-500 transition hover:bg-red-50">
-                                    Delete
-                                </button>
+                                </div>
 
                             </div>
 
                         </div>
+                    `
+                }
+            )
+            .join("")
 
-                    </div>`
-    })
 
-    if (pending_submission_list) {
-        pending_submission_list.innerHTML = submissionHtml
+        if (pendingSubmissionList) {
+
+            pendingSubmissionList.innerHTML =
+                submissionHtml
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Pending submission render error:",
+            error
+        )
+
     }
 
 }
-submissionRander()
-pending_submission_list?.addEventListener("click", async (e: any) => {
-    let approveBtn = e.target.closest(".approve")
-    let findId = approveBtn.dataset.approveId
-    let res = await api.get(`/pendingSubmissions/${findId}`)
-    let data: UserInformetion = res.data
 
-    let publish = {
-        id: crypto.randomUUID(),
-        name: data.contentname,
-        image: data.contentimage,
-        category: data.contentcategory,
-        author: data.username,
-        excerpt: data.contentexcerpt,
-        content: data.maincontent,
-        tags: data.contenttags,
-        publishDate: new Date().toISOString()
+
+// ========================================
+// INITIAL RENDER
+// ========================================
+
+submissionRender()
+
+
+// ========================================
+// APPROVE / DELETE
+// ========================================
+
+pendingSubmissionList?.addEventListener(
+    "click",
+    async (e) => {
+
+        const target =
+            e.target as HTMLElement
+
+
+        // ====================================
+        // APPROVE
+        // ====================================
+
+        const approveButton =
+            target.closest(
+                ".approve"
+            ) as HTMLButtonElement | null
+
+
+        if (approveButton) {
+
+            try {
+
+                const findId =
+                    approveButton.dataset.approveId
+
+
+                if (!findId) return
+
+
+                // Get pending article
+                const res =
+                    await api.get(
+                        `/pendingSubmissions/${findId}`
+                    )
+
+
+                const data:
+                    UserInformetion =
+                    res.data
+
+
+                // Create published article
+                const publish = {
+
+                    id:
+                        crypto.randomUUID(),
+
+                    name:
+                        data.contentname,
+
+                    image:
+                        data.contentimage,
+
+                    category:
+                        data.contentcategory,
+
+                    author:
+                        data.username,
+
+                    excerpt:
+                        data.contentexcerpt,
+
+                    content:
+                        data.maincontent,
+
+                    tags:
+                        data.contenttags,
+
+                    publishDate:
+                        new Date()
+                            .toISOString()
+                            .split("T")[0]
+                }
+
+
+                // Publish
+                await api.post(
+                    "/adminBlog",
+                    publish
+                )
+
+
+                // Remove from pending
+                await api.delete(
+                    `/pendingSubmissions/${findId}`
+                )
+
+
+                // Refresh
+                await submissionRender()
+
+                randerHtml()
+
+                window.location.reload()
+
+
+            } catch (error) {
+
+                console.error(
+                    "Approve error:",
+                    error
+                )
+
+                alert(
+                    "লেখাটি approve করা সম্ভব হয়নি।"
+                )
+
+            }
+
+        }
+
+
+        // ====================================
+        // DELETE
+        // ====================================
+
+        const deleteButton =
+            target.closest(
+                ".delete-submission"
+            ) as HTMLButtonElement | null
+
+
+        if (deleteButton) {
+
+            try {
+
+                const findId =
+                    deleteButton.dataset.deleteId
+
+
+                if (!findId) return
+
+
+                const confirmDelete =
+                    confirm(
+                        "আপনি কি এই submission টি delete করতে চান?"
+                    )
+
+
+                if (!confirmDelete) return
+
+
+                await api.delete(
+                    `/pendingSubmissions/${findId}`
+                )
+
+
+                await submissionRender()
+
+
+                randerHtml()
+
+
+            } catch (error) {
+
+                console.error(
+                    "Delete error:",
+                    error
+                )
+
+                alert(
+                    "Submission delete করা সম্ভব হয়নি।"
+                )
+
+            }
+
+        }
+
     }
-    await api.post('/adminBlog', publish)
-    await api.delete(`/pendingSubmissions/${findId}`)
-    submissionRander()
-    randerHtml()
-    window.location.reload()
-})
-
-
-// pending_submission_list?.addEventListener("click", async (e: any) => {
-//     let approveBtn = e.target.closest(".approve")
-//     let findId = approveBtn.dataset.approveId
-//     const swalWithBootstrapButtons = Swal.mixin({
-//   customClass: {
-//     confirmButton: "btn btn-success",
-//     cancelButton: "btn btn-danger"
-//   },
-//   buttonsStyling: false
-// });
-// swalWithBootstrapButtons.fire({
-//   title: "Are you sure?",
-//   text: "You won't be able to revert this!",
-//   icon: "warning",
-//   showCancelButton: true,
-//   confirmButtonText: "Yes, delete it!",
-//   cancelButtonText: "No, cancel!",
-//   reverseButtons: true
-// }).then((result) => {
-//   if (result.isConfirmed) swalWithBootstrapButtons.fire({
-//     title: "Deleted!",
-//     text: "Your file has been deleted.",
-//     icon: "success"
-//   });
-//   else if (result.dismiss === Swal.DismissReason.cancel)
-//  /* Read more about handling dismissals below */
-//   swalWithBootstrapButtons.fire({
-//     title: "Cancelled",
-//     text: "Your imaginary file is safe :)",
-//     icon: "error"
-//   });
-// });
-//     await api.delete(`/pendingSubmissions/${findId}`)
-//     submissionRander()
-// })
+)

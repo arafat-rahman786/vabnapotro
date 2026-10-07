@@ -17,7 +17,8 @@ export default defineConfig({
         edit: resolve(__dirname, 'edit.html'),
         user: resolve(__dirname, 'user.html'),
         author:resolve(__dirname, 'author-from.html'),
-        authorSection: resolve(__dirname, 'author-section.html')
+        authorSection: resolve(__dirname, 'author-section.html'),
+        articleSection: resolve(__dirname, 'article-store.html')
       }
     }
   },

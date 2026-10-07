@@ -1,8 +1,23 @@
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
 gsap.registerPlugin(SplitText);
 import api from '../../../lib/api'
 import "swiper/css";
+
+if (document.querySelector(".featuredSwiper")) {
+    new Swiper(".featuredSwiper", {
+        modules: [Autoplay],
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        speed: 700,
+    });
+}
 
 let title = document.getElementById("logo");
 let dateElement = document.querySelectorAll(".date");
